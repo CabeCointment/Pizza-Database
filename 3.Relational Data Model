@@ -1,0 +1,24 @@
+Part 3- RDM
+
+HOURS (HoursID, DayofWeeks, Opens, Closes)
+
+SUPPLIER (SupplierNo, SupplierName, Phone, Email, Address)
+
+REWARD CARD (RewardNo, Points)
+
+CUSTOMERS (CustNo, CustName, PaymentType, Phone, Email, Address, /RewardNo/)
+
+STORE (StoreNo, City, State, Address, Phone, Email, Zip)
+
+EMPLOYEE (EmployeeNo, EmployeeLast, EmployeeFirst, HireDate, Phone, Email, SSN, Role, /bossNo/, /StoreNo/) 
+
+MENU (ItemNo,ItemName, Price, Size, ItemType) 
+
+INGREDIENTS (IngredientNo, IngredientName, Price, Quantity, ExpirationDate, ShipDate, /ItemNo/)
+
+CUSTORDER (OrderNo, SpecialInstructions, orderTime, orderDate, /ItemNo/, /EmployeeNumber/, /CustNo/)
+
+SUPPLYORDER (OrderNo, Dateorder, Cost, /StoreNo/, /SupplierNo/)
+
+MADE (BatchNo, madeDate, /IngredientNo/, /SupplierNo/)
+
