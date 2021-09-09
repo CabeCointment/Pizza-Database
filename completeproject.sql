@@ -12,8 +12,8 @@ CREATE TABLE store(
 CREATE TABLE hours(
     HoursID INT(50) NOT NULL,
     DayOfWeek VARCHAR(12) NOT NULL,
-    Open TIME NOT NULL,
-    Close TIME NOT NULL,
+    'Open' TIME NOT NULL,
+    'Close' TIME NOT NULL,
     storeNo INT(250),
     PRIMARY KEY(HoursID),
     FOREIGN KEY (storeNo) REFERENCES store(storeNo)
@@ -200,7 +200,7 @@ VALUES
     (3, 'Wednesday', '11:00', '21:00', 3),
     (3, 'Thursday', '11:00', '21:00', 3),
     (3, 'Friday', '11:00', '22:00', 3),
-    (3, ''Saturday'', '11:00', '22:00', 3),
+    (3, 'Saturday', '11:00', '22:00', 3),
     (3, 'Sunday', '11:00', '21:00', 3),
     (4, 'Monday', '11:00', '21:00', 4),
     (4, 'Tuesday', '11:00', '21:00', 4),
@@ -242,13 +242,13 @@ VALUES
 
 INSERT INTO custorder (OrderNo, SpecialInstructions, OrderTime, OrderDate, ItemNo, EmployeeNo, CustNo)
 VALUES
-    (09576, 'Gluten Free Crust', "7:43", '2021-01-23', 10, 1, 1),
-    (09577, 'No Onions Extra Cheese', "01:26", '2021-01-26', 8, 3, 2),
-    (09578, 'Gluten Free Crust', "03:45", '2021-02-11', 7, 2, 3),
-    (09579, 'No Jalapenos', "12:15", '2021-02-18', 6, 1, 4),
-    (09580, NULL, "6:32", '2021-02-26', 2, 2, 5),
-    (09581, 'No Mushrooms', "5:02", '2021-03-07', 12, 2, 6),
-    (09582, 'No Tomatoes', "7:30", '2021-02-26', 1, 2, 7);
+    (09576, 'Gluten Free Crust', '7:43', '2021-01-23', 10, 1, 1),
+    (09577, 'No Onions Extra Cheese', '01:26', '2021-01-26', 8, 3, 2),
+    (09578, 'Gluten Free Crust', '03:45', '2021-02-11', 7, 2, 3),
+    (09579, 'No Jalapenos', '12:15', '2021-02-18', 6, 1, 4),
+    (09580, NULL, '6:32', '2021-02-26', 2, 2, 5),
+    (09581, 'No Mushrooms', '5:02', '2021-03-07', 12, 2, 6),
+    (09582, 'No Tomatoes', '7:30', '2021-02-26', 1, 2, 7);
 
 
 
