@@ -3,8 +3,8 @@ CREATE TABLE store(
     City VARCHAR (50) NOT NULL,
     State VARCHAR (2) NOT NULL,
     Address VARCHAR (100) NOT NULL,
-    Phone INT (10) NOT NULL,
-    Email VARCHAR(100) NOT NULL,
+    Phone VARCHAR (10) NOT NULL,
+    Email VARCHAR (100) NOT NULL,
     Zip INT(5) NOT NULL,
     PRIMARY KEY(storeNo)
 );
@@ -12,8 +12,8 @@ CREATE TABLE store(
 CREATE TABLE hours(
     HoursID INT(50) NOT NULL,
     DayOfWeek VARCHAR(12) NOT NULL,
-    'Open' TIME NOT NULL,
-    'Close' TIME NOT NULL,
+    openTime TIME NOT NULL,
+    closeTime TIME NOT NULL,
     storeNo INT(250),
     PRIMARY KEY(HoursID),
     FOREIGN KEY (storeNo) REFERENCES store(storeNo)
@@ -22,7 +22,7 @@ CREATE TABLE hours(
 CREATE TABLE supplier(
     supplierNo INT (250) NOT NULL,
     supplierName VARCHAR (100) NOT NULL,
-    Phone INT (10) NOT NULL,
+    Phone VARCHAR (10) NOT NULL,
     Email VARCHAR (100) NOT NULL,
     Address VARCHAR (100) NOT NULL,
     PRIMARY KEY(SupplierNo)
@@ -38,7 +38,7 @@ CREATE TABLE customers(
     CustNo INT(250) NOT NULL,
     CustName VARCHAR(20) NOT NULL,
     PaymentType VARCHAR(20) NOT NULL,
-    Phone INT(9) NOT NULL,
+    Phone VARCHAR(10) NOT NULL,
     Email VARCHAR(100),
     Address VARCHAR(100),
     RewardNo INT(250),
@@ -51,7 +51,7 @@ CREATE TABLE employee(
     employeeLast VARCHAR(100) NOT NULL,
     employeeFirst VARCHAR(100) NOT NULL,
     hireDate DATE NOT NULL,
-    phone INT(9) NOT NULL,
+    phone VARCHAR(10) NOT NULL,
     email VARCHAR(100) NOT NULL,
     SSN INT(8) NOT NULL,
     role VARCHAR(20) NOT NULL,
@@ -60,8 +60,7 @@ CREATE TABLE employee(
     storeNo INT(250), 
     PRIMARY KEY(employeeNo),
     FOREIGN KEY (StoreNo) REFERENCES store (StoreNo),
-    FOREIGN KEY (bossNo) REFERENCES employee(employeeNo)
-    
+    FOREIGN KEY (bossNo) REFERENCES employee(employeeNo)    
 );
 
 CREATE TABLE menu(
@@ -73,7 +72,6 @@ CREATE TABLE menu(
         IngredientNo INT(100),
         PRIMARY KEY(ItemNo)
 );
-
     
 CREATE TABLE ingredients(
     IngredientNo INT (100) NOT NULL,
@@ -135,87 +133,82 @@ VALUES
 (000131, 718),
 (000132, 480);
 
-
 INSERT INTO customers
     (CustNo, CustName, PaymentType, Phone, Email, Address, RewardNo)
 VALUES 
-    (1, 'Bob', 'Credit', 4856857354, 'bob@gmail.com', '333 Wood Court', 000123 ),
-    (2, 'Carol', 'Cash', 234765555, 'carol@gmail.com', '667 First St', NULL),
-    (3, 'Susan', 'Credit', 888663333, 'susan@gmail.com', '777 Love Lane', 000126),
-    (4, 'Ralph', 'Cash', 3484339993, 'ralph@gmail.com', '343 Mill Road', 000127),
-    (5, 'Jamal', 'Cash', 398754444, 'jamal@gmail.com', '111 First St', 000128),
-    (6, 'Shandra', 'Credit', 555772222, 'shandra@gmail.com', '222 Second St', 000132),
-    (7, 'Baker', 'Credit', 343990123, 'baker@gmail.com', '333 Third St', 000130),
-    (8, 'Sam', ' Cash', 2259456481, 'sam@gmail.com', '777 Love Lane', 000124),
-    (9, 'Tommy Lee', 'Cash', 2314224421, 'tommyleerightatya@yaman.net', '111 First St', 000125),
-    (10, 'Soulja Boy', 'Cash', 6789998212, 'souljaboy@souljaworld.com', '343 Mill Road', 000129),
-    (11, 'Tim', 'Credit', 41526814752, 'tim@aol.com', '667 First St', 000131),   
-    (12, 'John', 'Credit', 9981126355, 'john@h.net', '222 Second St', NULL);       
-
-
-
+    (1, 'Bob', 'Credit', '485685735', 'bob@gmail.com', '333 Wood Court', 000123 ),
+    (2, 'Carol', 'Cash', '234765555', 'carol@gmail.com', '667 First St', NULL),
+    (3, 'Susan', 'Credit', '888663333', 'susan@gmail.com', '777 Love Lane', 000126),
+    (4, 'Ralph', 'Cash', '3484339993', 'ralph@gmail.com', '343 Mill Road', 000127),
+    (5, 'Jamal', 'Cash', '398754444', 'jamal@gmail.com', '111 First St', 000128),
+    (6, 'Shandra', 'Credit', '555772222', 'shandra@gmail.com', '222 Second St', 000132),
+    (7, 'Baker', 'Credit', '343990123', 'baker@gmail.com', '333 Third St', 000130),
+    (8, 'Sam', ' Cash', '2259456481', 'sam@gmail.com', '777 Love Lane', 000124),
+    (9, 'Tommy Lee', 'Cash', '2314224421', 'tommyleerightatya@yaman.net', '111 First St', 000125),
+    (10, 'Soulja Boy', 'Cash', '6789998212', 'souljaboy@souljaworld.com', '343 Mill Road', 000129),
+    (11, 'Tim', 'Credit', '41526814752', 'tim@aol.com', '667 First St', 000131),   
+    (12, 'John', 'Credit', '9981126355', 'john@h.net', '222 Second St', NULL);       
 
 INSERT INTO store
     (StoreNo, City, State, Address, Phone, Email, Zip)
 VALUES 
-    (1, 'Baton Rouge', 'LA', '1050 Tiger Lane', 2253348004, 'litbr@gmail.com', 70808),
-    (2, 'New Orleans', 'LA', '5050 Claiborne Ave', 5043439087, 'litnola@gmail.com', 70118),
-    (3, 'Dallas', 'TX', '1000 Main St', 4043905466, 'litdallas@gmail.com', 54678),
-    (4, 'New York', 'NY', '3000 Times Square', 444557788, 'litnyc@gmail.com', 65498),
-    (5, 'San Diego', 'CA', '500 Broadway St', 756234396, 'litsandiego@gmail.com', 39586);
-
+    (1, 'Baton Rouge', 'LA', '1050 Tiger Lane', '2253348004', 'litbr@gmail.com', 70808),
+    (2, 'New Orleans', 'LA', '5050 Claiborne Ave', '5043439087', 'litnola@gmail.com', 70118),
+    (3, 'Dallas', 'TX', '1000 Main St', '4043905466', 'litdallas@gmail.com', 54678),
+    (4, 'New York', 'NY', '3000 Times Square', '444557788', 'litnyc@gmail.com', 65498),
+    (5, 'San Diego', 'CA', '500 Broadway St', '756234396', 'litsandiego@gmail.com', 39586);
 
 SET FOREIGN_KEY_CHECKS = 0;
 INSERT INTO employee 
     (EmployeeNo, EmployeeLast, EmployeeFirst, HireDate, Phone, Email, SSN, Role, Salary, BossNo, StoreNo)
 VALUES
-    (1, 'Smith', 'Brad', '2000-08-23', 504383124, 'bigbrad@gmail.com', 345956875, 'cook', 30000,6, 1),
-    (2, 'Wilson', 'Becky', '2010-02-03', 456938546, 'beckywilson@gmail.com', 349685745, 'cashier', 27000, 6, 1),
-    (3, 'Johnson', 'Frank', '1999-01-15', 405968768, 'frankjohnson@gmail.com', 34596764, 'driver', 35000, 6, 1),
-    (4, 'Howard', 'John', '2003-05-30', 343867530, 'johnhoward@gmail.com', 34523123, 'cook', 26000, 6, 1),
-    (5, 'Boudreaux', 'Dave', '2011-03-20', 344123323, 'cory@gmail.com', 43874354, 'accounting', 40000, 7, 1),
-    (6, 'Bond', 'James', '1992-02-13', 345566444, 'bond@gmail.com', 33344222, 'store manager', 50000, 7, 1),
-    (7, 'James', 'Rick', '1985-03-24', 444555444, 'rick@gmail.com', 222331111, 'regional manager', 75000, NULL, 1);
+    (1, 'Smith', 'Brad', '2000-08-23', '504383124', 'bigbrad@gmail.com', 345956875, 'cook', 30000,6, 1),
+    (2, 'Wilson', 'Becky', '2010-02-03', '456938546', 'beckywilson@gmail.com', 349685745, 'cashier', 27000, 6, 1),
+    (3, 'Johnson', 'Frank', '1999-01-15', '405968768', 'frankjohnson@gmail.com', 34596764, 'driver', 35000, 6, 1),
+    (4, 'Howard', 'John', '2003-05-30', '343867530', 'johnhoward@gmail.com', 34523123, 'cook', 26000, 6, 1),
+    (5, 'Boudreaux', 'Dave', '2011-03-20', '344123323', 'cory@gmail.com', 43874354, 'accounting', 40000, 7, 1),
+    (6, 'Bond', 'James', '1992-02-13', '345566444', 'bond@gmail.com', 33344222, 'store manager', 50000, 7, 1),
+    (7, 'James', 'Rick', '1985-03-24', '444555444', 'rick@gmail.com', 222331111, 'regional manager', 75000, NULL, 1);
 SET FOREIGN_KEY_CHECKS = 1;
 
 INSERT INTO hours
-    (HoursID, DayOfWeeks, Opens, Closes, StoreNo)
+    (HoursID, DayOfWeek, openTime, closeTime, StoreNo)
 VALUES
     (1, 'Monday', '11:00', '21:00', 1),
-    (1, 'Tuesday', '11:00', '21:00', 1),
-    (1, 'Wednesday', '11:00', '21:00', 1),
-    (1, 'Thursday', '11:00', '21:00', 1),
-    (1, 'Friday', '11:00', '22:00', 1),
-    (1, 'Saturday', '11:00', '22:00', 1),
-    (1, 'Sunday', '11:00', '21:00', 1),
-    (2, 'Monday', '11:00', '21:00', 2),
-    (2, 'Tuesday', '11:00', '21:00', 2),
-    (2, 'Wednesday', '11:00', '21:00', 2),
-    (2, 'Thursday', '11:00', '21:00', 2),
-    (2, 'Friday', '11:00', '22:00', 2),
-    (2, 'Saturday', '11:00', '22:00', 2),
-    (2, 'Sunday', '11:00', '21:00', 2),
-    (3, 'Monday', '11:00', '21:00', 3),
-    (3, 'Tuesday', '11:00', '21:00', 3),
-    (3, 'Wednesday', '11:00', '21:00', 3),
-    (3, 'Thursday', '11:00', '21:00', 3),
-    (3, 'Friday', '11:00', '22:00', 3),
-    (3, 'Saturday', '11:00', '22:00', 3),
-    (3, 'Sunday', '11:00', '21:00', 3),
-    (4, 'Monday', '11:00', '21:00', 4),
-    (4, 'Tuesday', '11:00', '21:00', 4),
-    (4, 'Wednesday', '11:00', '21:00', 4),
-    (4, 'Thursday', '11:00', '21:00', 4),
-    (4, 'Friday', '11:00', '22:00', 4),
-    (4, 'Saturday', '11:00', '22:00', 4),
-    (4, 'Sunday', '11:00', '21:00', 4),
-    (5, 'Monday', '11:00', '21:00', 5),
-    (5, 'Tuesday', '11:00', '21:00', 5),
-    (5, 'Wednesday', '11:00', '21:00', 5),
-    (5, 'Thursday', '11:00', '21:00', 5),
-    (5, 'Friday', '11:00', '22:00', 5),
-    (5, 'Saturday','11:00', '22:00', 5),
-    (5, 'Sunday', '11:00', '21:00', 5);
+    (2, 'Tuesday', '11:00', '21:00', 1),
+    (3, 'Wednesday', '11:00', '21:00', 1),
+    (4, 'Thursday', '11:00', '21:00', 1),
+    (5, 'Friday', '11:00', '22:00', 1),
+    (6, 'Saturday', '11:00', '22:00', 1),
+    (7, 'Sunday', '11:00', '21:00', 1),
+    (8, 'Monday', '11:00', '21:00', 2),
+    (9, 'Tuesday', '11:00', '21:00', 2),
+    (10, 'Wednesday', '11:00', '21:00', 2),
+    (11, 'Thursday', '11:00', '21:00', 2),
+    (12, 'Friday', '11:00', '22:00', 2),
+    (13, 'Saturday', '11:00', '22:00', 2),
+    (14, 'Sunday', '11:00', '21:00', 2),
+    (15, 'Monday', '11:00', '21:00', 3),
+    (16, 'Tuesday', '11:00', '21:00', 3),
+    (17, 'Wednesday', '11:00', '21:00', 3),
+    (18, 'Thursday', '11:00', '21:00', 3),
+    (19, 'Friday', '11:00', '22:00', 3),
+    (20, 'Saturday', '11:00', '22:00', 3),
+    (21, 'Sunday', '11:00', '21:00', 3),
+    (22, 'Monday', '11:00', '21:00', 4),
+    (23, 'Tuesday', '11:00', '21:00', 4),
+    (24, 'Wednesday', '11:00', '21:00', 4),
+    (25, 'Thursday', '11:00', '21:00', 4),
+    (26, 'Friday', '11:00', '22:00', 4),
+    (27, 'Saturday', '11:00', '22:00', 4),
+    (28, 'Sunday', '11:00', '21:00', 4),
+    (29, 'Monday', '11:00', '21:00', 5),
+    (30, 'Tuesday', '11:00', '21:00', 5),
+    (31, 'Wednesday', '11:00', '21:00', 5),
+    (32, 'Thursday', '11:00', '21:00', 5),
+    (33, 'Friday', '11:00', '22:00', 5),
+    (34, 'Saturday','11:00', '22:00', 5),
+    (35, 'Sunday', '11:00', '21:00', 5);
 
 INSERT INTO menu (ItemNo,ItemName, Price, Size, ItemType, IngredientNo)
 VALUES
@@ -240,7 +233,7 @@ VALUES
     (19, 'Fountain Drinks', 2.50, 'Large', 'Drinks', 014 ),
     (20, 'Fresh Squeezed Lemonade', 3.50, 'Large', 'Drinks', 015);
 
-INSERT INTO custorder (OrderNo, SpecialInstructions, OrderTime, OrderDate, ItemNo, EmployeeNo, CustNo)
+INSERT INTO custorder (OrderNo, specialInstructions, OrderTime, OrderDate, ItemNo, EmployeeNo, CustNo)
 VALUES
     (09576, 'Gluten Free Crust', '7:43', '2021-01-23', 10, 1, 1),
     (09577, 'No Onions Extra Cheese', '01:26', '2021-01-26', 8, 3, 2),
@@ -249,9 +242,6 @@ VALUES
     (09580, NULL, '6:32', '2021-02-26', 2, 2, 5),
     (09581, 'No Mushrooms', '5:02', '2021-03-07', 12, 2, 6),
     (09582, 'No Tomatoes', '7:30', '2021-02-26', 1, 2, 7);
-
-
-
 
 INSERT INTO ingredients (IngredientNo, IngredientName, Price, Quantity, ExpirationDate, ShipDate, ItemNo)
 VALUES
@@ -274,13 +264,11 @@ VALUES
 
 INSERT INTO supplier (SupplierNo, SupplierName, Phone, Email, Address)
 VALUES
-    (1, 'Texas Food Co', 404524666, 'texasfoodco@gmail.com', '200 Austin St'),
-    (2, 'Sysco', 444921674, 'food@sysco.net', '2600 Washington St'),
-    (3, 'Red Stick Eats', 225672913, 'redstickeats@gmail.com', '1242 Third Street'),
-    (4, 'CaliFood', 756912833, 'califood@gmail.com', '1331 Broad Rd'),
-    (5, 'Nawlins Ingredients', 504221321, 'nawlinsingredients@gmail.com', '6040 Clay Rd');
-
-
+    (1, 'Texas Food Co', '404524666', 'texasfoodco@gmail.com', '200 Austin St'),
+    (2, 'Sysco', '444921674', 'food@sysco.net', '2600 Washington St'),
+    (3, 'Red Stick Eats', '225672913', 'redstickeats@gmail.com', '1242 Third Street'),
+    (4, 'CaliFood', '756912833', 'califood@gmail.com', '1331 Broad Rd'),
+    (5, 'Nawlins Ingredients', '504221321', 'nawlinsingredients@gmail.com', '6040 Clay Rd');
 
 INSERT INTO supplyorder (OrderNo, DateOrder, Cost, StoreNo, SupplierNo)
 VALUES
@@ -291,9 +279,6 @@ VALUES
     (000685, '2021-02-28', 1110, 4, 2),
     (000686, '2021-02-28', 932, 1, 3),
     (000687, '2021-03-03', 750, 2, 5);
-
-
-
 
 INSERT INTO made (BatchNo, MadeDate, IngredientNo, SupplierNo)
 VALUES
@@ -306,9 +291,9 @@ VALUES
         (0053, '2021-04-04', 001, 5),
         (0054, '2021-04-10', 009, 1);
 
-/* Update custorder */
+/* Update custorder 
 SET specialInstructions = Null
-WHERE orderNo = 9580;
+WHERE orderNo = 9580; */
 
 /* 1 List all of the ingredients that will be expired by May 25, 2021 in descending order by date. */
 
@@ -325,9 +310,10 @@ WHERE e.employeeNo = 2;
 
 /* 3 What is the sum of the cost of  bulk ingredients for Get Lit pizza? */
 
-SELECT sum(price), IngredientNo, ItemName
+SELECT sum(price), ingredientNo, ItemName
 FROM menu
-WHERE ItemName = 'Get Lit';
+WHERE ItemName = 'Get Lit'
+GROUP BY ingredientNO,ItemName;
 
 /* 4 List the boss’s name along with the name and salary of employees who he or she manages.  MULTIPLE JOIN */
 
@@ -336,11 +322,21 @@ FROM employee e, employee b
 WHERE e.bossNo = b.employeeNo;
 
 /* 5 What is the average supply order cost for each store location from the highest cost to the lowest?  GROUP BY AGGREGATE MULTIPLE JOIN */
-
-SELECT AVG(cost), s.storeNo, s.city 
-FROM supplyorder so, store s
-WHERE s.storeNo = so.storeNo
-GROUP BY so.storeNo DESC;
+ 
+ SELECT
+  AVG(so.cost),
+  s.storeNo,
+  s.city
+FROM
+  supplyorder so,
+  store s
+WHERE
+  s.storeNo = so.storeNo
+GROUP BY
+  s.storeNo,
+  s.city
+ORDER BY
+  AVG(so.cost) DESC;
 
 /* 6 How many customers that made orders did not  have rewards accounts? COUNT AND IS NULL */
 
@@ -360,4 +356,3 @@ LIKE 'B%' OR employeeFirst LIKE 'B%';
 SELECT expirationDate
 FROM ingredients
 WHERE IngredientName IN ('Pepperoni', 'Italian Sausage', 'Roasted Chicken');
-
